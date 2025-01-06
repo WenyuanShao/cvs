@@ -1,0 +1,116 @@
+%-------------------------------------------------------------------------------
+%       RESEARCH PROJECTS SECTION
+%-------------------------------------------------------------------------------
+\section{Research\\Projects}
+\textbf{Fine-Grained Isolation for Scalable, Dynamic, Multi-tenant Edge Clouds}
+\\
+\textbf{\small Motivation:}
+5G edge clouds promise a pervasive computational infrastructure a short network hop away, enabling a new breed of smart devices that respond in real-time to their physical surroundings.
+Unfortunately, today’s operating system designs fail to meet the goals of scalable isolation, dense multitenancy, and high performance needed for such applications.
+\\
+\textbf{\small Research:}
+In this paper we introduce EdgeOS that emphasizes systemwide isolation as fine-grained as per-client.
+We propose a novel memory movement accelerator architecture that employs data copying to enforce strong isolation without performance penalties.
+To support scalable isolation, we introduce a new protection domain implementation that offers lightweight isolation, fast startup and low latency even under high churn.
+We implement EdgeOS in a microkernel based OS and demonstrate running high scale network middleboxes using the Click software router and endpoint applications such as memcached, a TLS proxy, and neural network inference.
+We reduce startup latency by 170X compared to Linux processes, and improve latency by three orders of magnitude when running 300 to 1000 edge-cloud memcached instances on one server.
+\\
+\textbf{\small Contributions:}
+\begin{itemize}[leftmargin=*]
+  \setlength\itemsep{-0.0em}
+        \item A carefully optimized “Memory Movement Accelerator” (MMA) communication and buffer management architecture that enforces isolation with data copying, while retaining high throughput and low latency.
+        \item A “Feather Weight Process” (FWP) that redefines the process abstraction to a minimal memory footprint and set of capabilities needed to support dense deployments of edge computation, and provides strong isolation between each client in multi-tenant environments.
+        \item A control plane with flexible routing and FWP chain caching to support microsecond speed initialization of complex services in high churn environments.
+\end{itemize}
+\vspace{-1.0em}
+\
+\\
+\textbf{\small Technical Skills:}
+In this project, I am mainly responsible for WebServer Applications which demonstrate the performance of EdgeOS, including:
+\begin{itemize}[leftmargin=*]
+    \setlength\itemsep{-0.0em}
+	\item Port lightweight TLS lib axTLS to EdgeOS which includes a lightweight httpsbased web proxy optimized for embedded systems, and the lwip TCP/IP networking stack.
+	\item Adjust the DPDK implementation in EdgeOS to enable seamless integration and functionality with both lwIP and axTLS.
+	\item Port the ARM CMSISNN neural netwrok inference library to EdgeOS, and use the example CIFAR\-10 configuration which takes as input a 32x32 pixel color image which classifies to number 0\-9.
+\end{itemize}
+\vspace{-1.0em}
+\
+\\
+\textbf{Edge-RT: OS Support for Controlled Latency in the Multi-Tenant, Real-Time Edge}
+\\
+\textbf{\small Motivation:}
+Embedded and real-time devices in many domains are increasingly dependent on network connectivity.
+The ability to offload computations encourages Cost, Size, Weight and Power (C-SWaP) optimizations, while coordination over the network effectively enables systems to sense the environment beyond their own local sensors, and to collaborate globally.
+The promise is significant: Autonomous Vehicles (AVs) coordinating with each other through infrastructure, factories aggregating data for global optimization, and power-constrained devices leveraging offloaded inference tasks.
+Low-latency wireless (e.g., 5G) technologies paired with the edge cloud, are further enabling these trends.
+Unfortunately, computation at the edge poses significant challenges due to the challenging combination of limited resources, required high performance, security due to multi-tenancy, and real-time latency.
+\\
+\textbf{\small Research:}
+This paper introduces Edge-RT, a set of OS extensions for the edge designed to meet the end-to-end (packet reception to transmission) deadlines across chains of computations.
+It supports strong security by executing a chain per-client device, thus isolating tenant and device computations.
+Despite a practical focus on deadlines and strong isolation, it maintains high system efficiency.
+To do so, Edge-RT focuses on per-packet deadlines inherited by the computations that operate on it.
+It introduces mechanisms to avoid per-packet system overheads, while trading only bounded impacts on predictable scheduling.
+Results show that compared to Linux and EdgeOS, Edge-RT can both maintain higher throughput and meet significantly more deadlines both for systems with bimodal workloads with utilization above 60\%, in the presence of malicious tasks, and as the system scales up in clients.
+\\
+\textbf{\small Contributions:}
+\begin{itemize}[leftmargin=*]
+  \setlength\itemsep{-0.0em}
+        \item A system design that (1) focuses on per-packet end-to-end deadline scheduling with dynamic, dense workloads, and (2) minimizes per-message system overheads.
+        \item The mechanisms and abstractions for predictable buffering, inter-core coordination, and scheduling that enable efficient packet processing.
+        \item The implementation of Edge-RT and the parameter studies to understand system overhead trade-offs to guide the
+system’s configuration.
+        \item The evaluation of Edge-RT for various workloads compared with Linux and EdgeOS.
+\end{itemize}
+\vspace{-1.0em}
+\
+\\
+\textbf{\small Technical Skills:}
+\begin{itemize}[leftmargin=*]
+   \setlength\itemsep{-0.0em}
+   	\item Implementation of a deadline-aware software DMA which running on a dedicated core whoes job including copying packets between FWPs (Feather-Weight Process), send notifications to the corresponding core and keeping tracks of deadline of each packets.
+   	\item Adaption of the kernel-bypass DPDK library for fast packet transcation while enabling end-to-end scheduling of packets.
+	%%\item An implementation of predictable buffering and inter-core coordination based on inter-core notifications.
+	\item An implementation of the scheduling algorithm that executes in constant time, irrespective of the number of tasks.
+	\item Multi-tenant Linux compare cases through virtual NICs provided by SR-IOV and Open vSwitch paired with DPDK.
+\end{itemize}
+\
+\\
+\textbf{Janus: OS Support for a Secure, Fast Control-Plane}
+\\
+\textbf{\small Motivation:}
+The emergence of the edge cloud, empowered by advanced wireless technologies such as 5G, is aimed at delivering predictable latency-sensitive services with the potential for interaction within low milliseconds.
+Even in the traditional cloud, latency-sensitive services are pervasive.
+To enable low-latency software, much focus has been on data-plane optimizations for fast processing of requests.
+Unfortunately, these efforts alone are insufficient: effective low-latency service also require advances in the control-plane.
+However, control-plane operations require strong spatial and temporal isolation between tenant computations, thus can result in significant overhead.
+\\
+\textbf{\small Research:}
+This paper introduces Janus an OS abstraction for a flexible control-plane which provides strong isolation as well as managed latency through the use of pervasive kernel-bypass.
+Janus leverages hardware Memory Protection Key (MPK) to enable low-cost control operations for protected procedure call (PPC) and thread dispatch -- two essential building blocks of spatial and temporal isolation.
+By transparently improving these fundamental control-plane operations, Janus enables efficient and predictable user-defined and customizable system control policies and mechanisms, while maintaining strong isolation.
+We evaluate Janus’s ability to define new control operations, increase the efficiency of an existing RTOS, and support low-latency services in a memcached server.
+Compared to a Linux approach, a specialized latency-sensitive control plane using Janus provides over a 6x improvement in throughput, while providing 99th percentile tail latencies almost 3x lower.
+In a multi-tenant system, tail latency improves by orders of magnitude.
+\\
+\textbf{\small Contributions:}
+\begin{itemize}[leftmargin=*]
+  \setlength\itemsep{-0.0em}
+        \item Janus introduces a latency sensitive and customizable control-plane abstraction for managing execution of multiple, latency-sensitive and untrusted tenants.
+        \item Janus transparently integrates the existing isolation mechanisms in a security-centric OS with those provided by hardware extensions for memory isolation (MPK), enabling efficient and predictable extension of control-plane policies.
+        \item We evaluate Janus and compare it with existing µ-kernels, a µ-kernel-based RTOS, and Linux.
+\end{itemize}
+\vspace{-1.0em}
+\
+\\
+\textbf{\small Technical Skills:}
+\begin{itemize}[leftmargin=*]
+   \setlength\itemsep{-0.0em}
+   	\item The implementation of user-level IPC callgate and thread dispatch gate based on hardware architecture specific features.
+	\item Adapt the well-known in-memory key-value store Memcached to Janus and setting up multi-tenant Memcached by separating tenant computation into components in Composite and Janus.
+	\item Setting up and adapting other real-time operating systems such as seL4 for comparison cases, and implement L4-style IPC in Janus.
+	\item Leverage Patina which provides predictable interfaces including communication channels, event management, and synchronization to demonstrate performance of Janus on basic interfaces for embedded systems.
+\end{itemize}
+\
+\\
+
