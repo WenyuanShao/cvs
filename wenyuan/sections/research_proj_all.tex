@@ -4,6 +4,9 @@
 \section{Research\\Projects}
 \textbf{Fine-Grained Isolation for Scalable, Dynamic, Multi-tenant Edge Clouds}
 \\
+\textbf{\small Achievements:}
+We reduce startup latency by 170X compared to Linux processes, and improve latency by three orders of magnitude when running 300 to 1000 edge-cloud Memcached instances on one server.
+\\
 \textbf{\small Motivation:}
 5G edge clouds promise a pervasive computational infrastructure a short network hop away, enabling a new breed of smart devices that respond in real-time to their physical surroundings.
 Unfortunately, today’s operating system designs fail to meet the goals of scalable isolation, dense multi-tenancy, and high performance needed for such applications.
@@ -13,7 +16,6 @@ In this paper we introduce EdgeOS that emphasizes system wide isolation as fine-
 We propose a novel memory movement accelerator architecture that employs data copying to enforce strong isolation without performance penalties.
 To support scalable isolation, we introduce a new protection domain implementation that offers lightweight isolation, fast startup and low latency even under high churn.
 We implement EdgeOS in a micro-kernel based OS and demonstrate running high scale network middleboxes using the Click software router and endpoint applications such as Memcached, a TLS proxy, and neural network inference.
-We reduce startup latency by 170X compared to Linux processes, and improve latency by three orders of magnitude when running 300 to 1000 edge-cloud Memcached instances on one server.
 \\
 \textbf{\small Contributions:}
 \begin{itemize}[leftmargin=*]
@@ -38,6 +40,9 @@ In this project, I am mainly responsible for WebServer Applications which demons
 \\
 \textbf{Edge-RT: OS Support for Controlled Latency in the Multi-Tenant, Real-Time Edge}
 \\
+\textbf{\small Achievements:}
+Compared to Linux and EdgeOS, Edge-RT can both maintain higher throughput and meet significantly more deadlines both for systems with bimodal workloads with utilization above 60\%, in the presence of malicious tasks, and as the system scales up in clients.
+\\
 \textbf{\small Motivation:}
 Embedded and real-time devices in many domains are increasingly dependent on network connectivity.
 The ability to offload computations encourages Cost, Size, Weight and Power (C-SWaP) optimizations, while coordination over the network effectively enables systems to sense the environment beyond their own local sensors, and to collaborate globally.
@@ -51,7 +56,6 @@ It supports strong security by executing a chain per-client device, thus isolati
 Despite a practical focus on deadlines and strong isolation, it maintains high system efficiency.
 To do so, Edge-RT focuses on per-packet deadlines inherited by the computations that operate on it.
 It introduces mechanisms to avoid per-packet system overheads, while trading only bounded impacts on predictable scheduling.
-Results show that compared to Linux and EdgeOS, Edge-RT can both maintain higher throughput and meet significantly more deadlines both for systems with bimodal workloads with utilization above 60\%, in the presence of malicious tasks, and as the system scales up in clients.
 \\
 \textbf{\small Contributions:}
 \begin{itemize}[leftmargin=*]

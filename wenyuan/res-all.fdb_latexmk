@@ -1,9 +1,9 @@
 # Fdb version 3
-["xdvipdfmx"] 1736203646 "res-all.xdv" "res-all.pdf" "res-all" 1736203646
-  "res-all.xdv" 1736203646 86168 3158bd341f68cb8c08b466b499bbeb8c "xelatex"
+["xdvipdfmx"] 1737132713 "res-all.xdv" "res-all.pdf" "res-all" 1737132713
+  "res-all.xdv" 1737132713 88256 4942a96c8529aaf160457b576288f9d2 "xelatex"
   (generated)
   "res-all.pdf"
-["xelatex"] 1736203646 "res-all.tex" "res-all.xdv" "res-all" 1736203646
+["xelatex"] 1737132712 "res-all.tex" "res-all.xdv" "res-all" 1737132713
   "/etc/texmf/web2c/texmf.cnf" 1636583640 475 c0e671620eb5563b2130f56340a5fde8 ""
   "/usr/share/texlive/texmf-dist/fonts/map/fontname/texfonts.map" 1577235249 3524 cb3e574dea2d1052e39280babc910dc8 ""
   "/usr/share/texlive/texmf-dist/fonts/tfm/adobe/zapfding/pzdr.tfm" 1136768653 1528 f853c4d1b4e0550255e02831fdc8496f ""
@@ -54,14 +54,14 @@
   "/usr/share/texlive/texmf-dist/web2c/texmf.cnf" 1581979058 38841 ce3692aa899bb693b90b87eaa5d4d84e ""
   "/usr/share/texmf/web2c/texmf.cnf" 1581979058 38841 ce3692aa899bb693b90b87eaa5d4d84e ""
   "/var/lib/texmf/web2c/xetex/xelatex.fmt" 1712518456 4647956 351959b58e04f387bdc27d1f18587286 ""
-  "res-all.aux" 1736203646 8 a94a2480d3289e625eea47cd1b285758 ""
+  "res-all.aux" 1737132712 8 a94a2480d3289e625eea47cd1b285758 ""
   "res-all.tex" 1736203634 3130 bfe71333822e14f5e8cff72eed863467 ""
   "res.cls" 1736203634 25104 7e45d09c4f4c916d6752f10107d828af ""
   "sections/comp_skills.tex" 1736203634 825 376ced0f4fa2628a8699e2b34347c703 ""
   "sections/education.tex" 1736203634 907 b7dc30032ba166138bb3dc20f39c2826 ""
   "sections/experience.tex" 1736203634 1298 7583680da1c06a574b0d8765fbf59f1d ""
-  "sections/publications.tex" 1736203634 1768 228dec3d93821987fa6d55f69cff10dc ""
-  "sections/research_proj_all.tex" 1736203634 9880 1298e16e278fcf078536dfa7705e64f8 ""
+  "sections/publications.tex" 1736314715 1794 fdcb295e4b7bb2e77a1e30b2c1deebdf ""
+  "sections/research_proj_all.tex" 1737132495 9928 482132d47417dd1f1b5f52e8a35ffd29 ""
   (generated)
-  "res-all.log"
   "res-all.xdv"
+  "res-all.log"
