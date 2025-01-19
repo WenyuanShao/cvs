@@ -5,22 +5,22 @@
 \textbf{Fine-Grained Isolation for Scalable, Dynamic, Multi-tenant Edge Clouds}
 \\
 \textbf{\small Achievements:}
-We reduce startup latency by 170X compared to Linux processes, and improve latency by three orders of magnitude when running 300 to 1000 edge-cloud Memcached instances on one server.
+We reduced startup latency by \textbf{170X} compared to Linux processes, and improve latency by \textbf{three orders of magnitude} when running 300 to 1000 edge-cloud Memcached instances on one server.
 \\
 \textbf{\small Motivation:}
 5G edge clouds promise a pervasive computational infrastructure a short network hop away, enabling a new breed of smart devices that respond in real-time to their physical surroundings.
 Unfortunately, today’s operating system designs fail to meet the goals of scalable isolation, dense multi-tenancy, and high performance needed for such applications.
 \\
 \textbf{\small Research:}
-In this paper we introduce EdgeOS that emphasizes system wide isolation as fine-grained as per-client.
+In this paper, we introduce EdgeOS that emphasizes system-wide isolation as fine-grained as per-client.
 We propose a novel memory movement accelerator architecture that employs data copying to enforce strong isolation without performance penalties.
-To support scalable isolation, we introduce a new protection domain implementation that offers lightweight isolation, fast startup and low latency even under high churn.
-We implement EdgeOS in a micro-kernel based OS and demonstrate running high scale network middleboxes using the Click software router and endpoint applications such as Memcached, a TLS proxy, and neural network inference.
+To support scalable isolation, we introduce a new protection domain implementation that offers lightweight isolation, fast startup, and low latency even under high churn.
+We implement EdgeOS in a micro-kernel-based OS and demonstrate running high-scale network middleboxes using the Click software router and endpoint applications such as Memcached, a TLS proxy, and neural network inference.
 \\
 \textbf{\small Contributions:}
 \begin{itemize}[leftmargin=*]
   \setlength\itemsep{-0.0em}
-        \item A carefully optimized “Memory Movement Accelerator” (MMA) communication and buffer management architecture that enforces isolation with data copying, while retaining high throughput and low latency.
+        \item A carefully optimized “Memory Movement Accelerator” (MMA) communication and buffer management architecture that enforces isolation with data copying, while retaining high throughput, and low latency.
         \item A “Feather Weight Process” (FWP) that redefines the process abstraction to a minimal memory footprint and set of capabilities needed to support dense deployments of edge computation, and provides strong isolation between each client in multi-tenant environments.
         \item A control plane with flexible routing and FWP chain caching to support microsecond speed initialization of complex services in high churn environments.
 \end{itemize}
@@ -28,10 +28,10 @@ We implement EdgeOS in a micro-kernel based OS and demonstrate running high scal
 \
 \\
 \textbf{\small Technical Skills:}
-In this project, I am mainly responsible for WebServer Applications which demonstrate the performance of EdgeOS, including:
+In this project, I am mainly responsible for WebServer Applications which demonstrates the performance of EdgeOS, including:
 \begin{itemize}[leftmargin=*]
     \setlength\itemsep{-0.0em}
-	\item Adaption of a lightweight TLS lib axTLS to EdgeOS which includes a lightweight https-based web proxy optimized for embedded systems, and the lwip TCP/IP networking stack.
+	\item Adaption of a lightweight TLS lib axTLS to EdgeOS which includes a lightweight HTTPs-based web proxy optimized for embedded systems, and the lwip TCP/IP networking stack.
 	\item Adjustment of  the DPDK implementation in EdgeOS to enable seamless integration and functionality with both lwIP and axTLS.
 	\item Adaption of the ARM CMSISNN neural network inference lib to EdgeOS, and use the example CIFAR\-10 configuration which takes as input a 32x32 pixel color image which classifies to number 0\-9.
 \end{itemize}
@@ -41,11 +41,11 @@ In this project, I am mainly responsible for WebServer Applications which demons
 \textbf{Edge-RT: OS Support for Controlled Latency in the Multi-Tenant, Real-Time Edge}
 \\
 \textbf{\small Achievements:}
-Compared to Linux and EdgeOS, Edge-RT can both maintain higher throughput and meet significantly more deadlines both for systems with bimodal workloads with utilization above 60\%, in the presence of malicious tasks, and as the system scales up in clients.
+Compared to Linux and EdgeOS, Edge-RT can both maintain higher throughput and meet significantly more deadlines both for systems with bimodal workloads with utilization \textbf{above 60\%}, in the presence of malicious tasks, and as the system scales up in clients.
 \\
 \textbf{\small Motivation:}
 Embedded and real-time devices in many domains are increasingly dependent on network connectivity.
-The ability to offload computations encourages Cost, Size, Weight and Power (C-SWaP) optimizations, while coordination over the network effectively enables systems to sense the environment beyond their own local sensors, and to collaborate globally.
+The ability to offload computations encourages Cost, Size, Weight, and Power (C-SWaP) optimizations, while coordination over the network effectively enables systems to sense the environment beyond their own local sensors, and to collaborate globally.
 The promise is significant: Autonomous Vehicles (AVs) coordinating with each other through infrastructure, factories aggregating data for global optimization, and power-constrained devices leveraging offloaded inference tasks.
 Low-latency wireless (e.g., 5G) technologies paired with the edge cloud, are further enabling these trends.
 Unfortunately, computation at the edge poses significant challenges due to the challenging combination of limited resources, required high performance, security due to multi-tenancy, and real-time latency.
@@ -72,8 +72,8 @@ system’s configuration.
 \textbf{\small Technical Skills:}
 \begin{itemize}[leftmargin=*]
    \setlength\itemsep{-0.0em}
-   	\item Implementation of a deadline-aware software DMA which running on a dedicated core whose job including copying packets between FWPs (Feather-Weight Process), send notifications to the corresponding core and keeping tracks of deadline of each packets.
-   	\item Adaption of the kernel-bypass DPDK library for fast packet transaction while enabling end-to-end scheduling of packets.
+   	\item Implementation of a deadline-aware software DMA which runs on a dedicated core whose job includes copying packets between FWPs (Feather-Weight Process), send notifications to the corresponding core and keep track of the deadline for each packets.
+   	\item Adaption of the kernel-bypass DPDK library for fast packet transactions while enabling end-to-end scheduling of packets.
 	%%\item An implementation of predictable buffering and inter-core coordination based on inter-core notifications.
 	\item An implementation of the scheduling algorithm that executes in constant time, irrespective of the number of tasks.
 	\item Multi-tenant Linux compare cases through virtual NICs provided by SR-IOV and Open vSwitch paired with DPDK.
